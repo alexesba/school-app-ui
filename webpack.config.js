@@ -1,7 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const webpack = require('webpack');
-
 
 const path = require('path');
 module.exports = (_env, argsv) => {
@@ -58,11 +56,7 @@ module.exports = (_env, argsv) => {
         template: path.resolve(__dirname, 'src/index.html'),
         scripts: ['/public/js/Chart.min.js']
       }),
-      !isProduction && new ReactRefreshWebpackPlugin(),
-      new webpack.ProvidePlugin({
-        $: "jquery",
-        jQuery: "jquery"
-      })
+      !isProduction && new ReactRefreshWebpackPlugin()
     ].filter(Boolean),
     devtool: 'source-map',
     devServer: {
