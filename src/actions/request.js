@@ -15,14 +15,16 @@ const getAuthHeaders = response => {
 
 const useAxiosWrapper = () => {
   const api = axios.create();
-  const [auth, setAuth] = useRecoilState(AuthAtom);
+  const [headers, setAuth] = useRecoilState(AuthAtom);
 
   const navigate = useNavigate();
 
   const successResponse = response => {
     const authHeaders = getAuthHeaders(response);
-    setAuth(authHeaders)
-    Session.setToken(JSON.stringify(authHeaders));
+    if (authHeaders['access-token']) {
+      setAuth(authHeaders)
+      Session.setToken(JSON.stringify(authHeaders));
+    }
     return response;
   };
 
@@ -32,8 +34,7 @@ const useAxiosWrapper = () => {
   }
 
   const setRequestHeaders = (config) => {
-    config.headers = typeof auth == 'string' ? JSON.parse(auth) : auth
-    console.log(auth);
+    config.headers = headers
     return config;
   }
 
@@ -45,6 +46,7 @@ const useAxiosWrapper = () => {
 
   // Set the header tokens on each request
   api.interceptors.request.use(setRequestHeaders)
+
   return api;
 }
 

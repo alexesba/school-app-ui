@@ -26,7 +26,6 @@ const RememberMe = () => (
 const LoginPage = props => {
   const emailInput = useRef(null);
   const passwordInput = useRef(null);
-  // const appState = useStateProvider();
   const { login } = useAuthActions();
   const onSubmit = async event => {
     event.preventDefault();

@@ -8,10 +8,10 @@ import adminImage from 'images/figure/admin.jpg';
 import studenImage11 from 'images/figure/student11.png';
 import studenImage12 from 'images/figure/student12.png';
 import studenImage13 from 'images/figure/student13.png';
-import { logout } from '../../constants/auth/actions';
 import Alert from '../Alert'
 import { useRecoilValue } from 'recoil';
 import { currentUserAtom } from '../../atoms/currentUser';
+import useAuthActions from '../../actions/auth';
 
 const toggleMenu = () => {
   $('#wrapper').toggleClass('sidebar-collapsed');
@@ -26,6 +26,7 @@ const toggleMobile = () => {
 
 const TopNavBar = props => {
   const currentUser = useRecoilValue(currentUserAtom)
+  const { logout } = useAuthActions()
   const { homePath } = props;
   return (
     <div className="navbar navbar-expand-md header-menu-one bg-light">
@@ -88,7 +89,7 @@ const TopNavBar = props => {
                   <li><a href="#"><i className="flaticon-list"></i>Task</a></li>
                   <li><a href="#"><i className="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i>Message</a></li>
                   <li><a href="#"><i className="flaticon-gear-loading"></i>Account Settings</a></li>
-                  <li><a href="#" onClick={() => logout(dispatch)}><i className="flaticon-turn-off"></i>Log Out</a></li>
+                  <li><a href="#" onClick={() => logout()}><i className="flaticon-turn-off"></i>Log Out</a></li>
                 </ul>
               </div>
             </div>
