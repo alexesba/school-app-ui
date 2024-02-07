@@ -1,0 +1,206 @@
+import React from 'react';
+import TopNavBar from '../../components/topNavbar';
+import DashboardPageOne from '../../components/dashboardPageOne';
+import DashboardContentOne from '../../components/dashboardContentOne';
+import Sidebar from '../../components/sidebar';
+import Breadcub from '../../components/breadcub';
+import Preloader from '../../components/preloader';
+import DashboardContentRow from '../../components/dashboardContentRow';
+import DashboardSummaryOne from '../../components/dashboardSummaryOne';
+import SocialMediaItem from '../../components/SocialMediaItem';
+import Footer from '../../components/footer';
+import EarningsChart from '../../components/charts/earnings';
+import ExpensesChart from '../../components/charts/expenses';
+import StudentsChart from '../../components/charts/students';
+import EventCalendar from '../../components/widgets/eventCalendar';
+import WebsiteTraffic from '../../components/widgets/websiteTraffic';
+import NoticeBoard from '../../components/widgets/noticeBoard';
+import Col from '../../components/col';
+import GroupItem from '../../components/sidebar/groupItem';
+import MenuItem from '../../components/sidebar/item';
+
+const Admin = props => (
+  <div>
+    <Preloader/>
+
+    <div id="wrapper" className="wrapper bg-ash">
+      <TopNavBar/>
+      {/* Page Area Start Here */}
+      <DashboardPageOne>
+
+        {/* Sidebar Area Start Here */}
+        <Sidebar>
+
+          <GroupItem groupName='Dashboard' icon='dashboard'>
+            <MenuItem title='Admin' onClick={() => console.log('Move to Admin Page')}/>
+            <MenuItem title='Students' onClick={() => console.log('Move to Students Page')}/>
+            <MenuItem title='Parents' onClick={() => console.log('Move to Parents Page')}/>
+            <MenuItem title='Teachers' onClick={() => console.log('Move to Teachers Page')}/>
+          </GroupItem>
+          <GroupItem groupName='Students' icon='classmates'>
+            <MenuItem title='Student Details' onClick={() => console.log('Move to Student Details Page')}/>
+            <MenuItem title='Admission Form' onClick={() => console.log('Move to Admission Form')}/>
+            <MenuItem title='Student Promotion' onClick={() => console.log('Move to Student Promotion Page')}/>
+          </GroupItem>
+          <GroupItem groupName='Teachers' icon='multiple-users-silhouette'>
+            <MenuItem title='All Teachers' onClick={() => console.log('Move to all teachers')}/>
+            <MenuItem title='Teacher Details' onClick={() => console.log('Move to Teachers details')}/>
+            <MenuItem title='Add Teacher' onClick={() => console.log('Move to Add teacher page')}/>
+            <MenuItem title='Payments' onClick={() => console.log('Move to Payments Page')}/>
+          </GroupItem>
+          <GroupItem groupName='Parents' icon='couple'>
+            <MenuItem title='All Parents' onClick={() => console.log('Move to All parents Page')}/>
+            <MenuItem title='Parents Details' onClick={() => console.log('Move to Parents Details Page')}/>
+            <MenuItem title='Add Parent' onClick={() => console.log('Move to Add Parent Page')}/>
+          </GroupItem>
+          <GroupItem groupName='Library' icon='books'>
+            <MenuItem title='All Books' onClick={() => console.log('Move to Books Page')}/>
+            <MenuItem title='Add New Book' onClick={() => console.log('Move to Add Book Page')}/>
+            <MenuItem title='Add New Book' onClick={() => console.log('Move to Add Book Page')}/>
+          </GroupItem>
+          <GroupItem groupName='Acconunt' icon='technological'>
+            <MenuItem title='All Fees Collection' onClick={() => console.log('Move to all fees collection Page')}/>
+            <MenuItem title='Expenses' onClick={() => console.log('Move to List Expenses Page')}/>
+            <MenuItem title='Add Expenses' onClick={() => console.log('Move to Add Expenses Page')}/>
+          </GroupItem>
+          <GroupItem groupName='Class' icon='maths-class-materials-cross-of-a-pencil-and-a-ruler'>
+            <MenuItem title='All Classes' onClick={() => console.log('Move to All Classes Page')}/>
+            <MenuItem title='Add New Class' onClick={() => console.log('Move to Add New Class Page')}/>
+          </GroupItem>
+          <MenuItem title='Subject' single icon='open-book' onClick={() => console.log('Subject Paage') }/>
+          <MenuItem title='Routine' single icon='checklist' onClick={() => console.log('Routine Page') }/>
+          <MenuItem title='Class Routine' single icon='calendar' onClick={() => console.log('Class Routine Page') }/>
+          <MenuItem title='Attendence' single icon='checklist' onClick={() => console.log('Attendence Page') }/>
+          <GroupItem groupName='Exam' icon='shopping-list'>
+            <MenuItem title='Exam Schedule' onClick={() => console.log('Move to Exam Schedule Page')}/>
+            <MenuItem title='Exam Grades' onClick={() => console.log('Move to Exam Grades Page')}/>
+          </GroupItem>
+
+          <MenuItem title='Transport' single icon='bus-side-view' onClick={() => console.log('Transport Page') }/>
+          <MenuItem title='Notice' single icon='script' onClick={() => console.log('Notice Page') }/>
+          <MenuItem title='Messeage' single icon='chat' onClick={() => console.log('Messeages Page') }/>
+
+          <GroupItem groupName='UI Elements' icon='menu-1'>
+            <MenuItem title='Alert' onClick={() => console.log('Show Alert Page')}/>
+            <MenuItem title='Button' onClick={() => console.log('Show Buttons Page')}/>
+            <MenuItem title='Grid' onClick={() => console.log('Show Grid Element')}/>
+            <MenuItem title='Modal' onClick={() => console.log('Show Modal Element')}/>
+            <MenuItem title='Progress Bar' onClick={() => console.log('Show Progress Bar Elements')}/>
+            <MenuItem title='Tab' onClick={() => console.log('Show Tab Element')}/>
+            <MenuItem title='Widget' onClick={() => console.log('Show Widget Element')}/>
+          </GroupItem>
+
+          <MenuItem title='Map' single icon='planet-earth' onClick={() => console.log('Map Element') }/>
+          <MenuItem title='Account' single icon='settings' onClick={() => console.log('Account Form') }/>
+        </Sidebar>
+        {/* Sidebar Area End Here */}
+
+        <DashboardContentOne>
+          {/* Dashboard Content Start Here */}
+
+          {/* Breadcubs Area Start Here */}
+          <Breadcub/>
+          {/* Breadcubs Area End Here */}
+
+          {/* Dashboard summery Start Here */}
+          <DashboardContentRow>
+            <DashboardSummaryOne
+              number={15000}
+              title='Studends'
+              iconClass='classmates'
+              textColor='green'
+              backgroundColor='green'
+            />
+
+          <DashboardSummaryOne
+            number={2250}
+            title='Teachers'
+            iconClass='multiple-users-silhouette'
+            textColor='blue'
+            backgroundColor='blue'
+          />
+
+        <DashboardSummaryOne
+          number={5690}
+          title='Parents'
+          iconClass='couple'
+          textColor='yellow'
+          backgroundColor='yellow'
+        />
+
+      <DashboardSummaryOne
+        number={193000}
+        title='Earnings'
+        iconClass='money'
+        textColor='red'
+        backgroundColor='red'
+      />
+    </DashboardContentRow>
+
+    <DashboardContentRow>
+      <Col size={6}>
+        <EarningsChart/>
+      </Col>
+      <Col size={3}>
+        <ExpensesChart/>
+      </Col>
+      <Col size={3}>
+        <StudentsChart />
+      </Col>
+      <Col size={4}>
+        <EventCalendar />
+      </Col>
+      <Col size={4}>
+        <WebsiteTraffic />
+      </Col>
+      <Col size={4}>
+        <NoticeBoard />
+      </Col>
+
+    </DashboardContentRow>
+    {/* Dashboard summery Start Here */}
+
+    {/* Social Media Start Here */}
+    <DashboardContentRow>
+      <SocialMediaItem
+        icon='facebook-f'
+        total={30000}
+        backgroundColor='fb'
+        title='Like us on facebook'
+      />
+      <SocialMediaItem
+        icon='twitter'
+        backgroundColor='twitter'
+        total={111000}
+        title='Follow us on Twitter'
+      />
+      <SocialMediaItem
+        icon='google-plus-g'
+        backgroundColor='gplus'
+        total={19000}
+        title='Follow us on googleplus'
+      />
+      <SocialMediaItem
+        icon='linkedin-in'
+        backgroundColor='linkedin'
+        total={45000}
+        title='Follow us on linkedin'
+
+      />
+    </DashboardContentRow>
+    {/* Social Media End Here */}
+
+    {/* Footer Area Start Here */}
+    <Footer/>
+    {/* Footer Area End Here */}
+
+    {/* Dashboard content End Here */}
+  </DashboardContentOne>
+
+</DashboardPageOne>
+{/* Page Area End Here */}
+        </div>
+      </div>
+)
+
+export default Admin;

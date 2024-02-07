@@ -1,0 +1,120 @@
+.paginate {
+  &-container {
+    display: inline-block;
+    margin-top: $mg-12px;
+    text-align: center;
+    width: 100%;
+  }
+
+  &-spinner {
+    display: inline-block;
+    height: $height-80px;
+    position: relative;
+    width: 80px;
+  }
+}
+
+.paginate-btn {
+  border: 1px solid $yellow-sea;
+  margin-bottom: $mg-5px;
+  margin-right: $mg-5px;
+  padding: $padding-4px $padding-9px;
+
+  &:focus { outline: none; }
+
+  &.previous-page-link:hover:not(.disabled),
+  &.next-page-link:hover:not(.disabled) {
+    background-color: $scorpion !important;
+    border: 1px solid $cod-gray !important;
+    color: $white !important;
+    cursor: pointer;
+  }
+
+  &:hover:not(.active, .disabled, .previous-page-link, .next-page-link) {
+    background: -webkit-gradient(linear, left top, right top, from(#ff9d01), to(#ffae01));
+    background: linear-gradient(to left, #ff9d01, #ffae01);
+    background: linear-gradient(to right, #ff9d01, #ffae01);
+    border-color: $yellow-sea;
+    cursor: pointer;
+  }
+
+  &.active {
+    background: -webkit-gradient(linear, left top, right top, from(#ff9d01), to(#ffae01));
+    background: linear-gradient(to left, #ff9d01, #ffae01);
+    background: linear-gradient(to left, #ff9d01, #ffae01);
+    background: linear-gradient(to right, #ff9d01, #ffae01);
+    border: 1px solid $yellow-sea;
+    box-shadow: none;
+    cursor: default;
+  }
+
+  &.active:hover {
+    background: transparent;
+    border-color: $yellow-sea;
+  }
+
+  &.disabled {
+    color: $silver-darker;
+    cursor: not-allowed;
+  }
+}
+
+.paginate-spinner div {
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  background: $yellow-sea;
+  border-radius: $br-50percent;
+  height: $height-13px;
+  position: absolute;
+  top: 33px;
+  width: 13px;
+
+  &:nth-child(1) {
+    animation: paginate-spinner1 0.6s infinite;
+    left: 8px;
+  }
+
+  &:nth-child(2) {
+    animation: paginate-spinner2 0.6s infinite;
+    left: 8px;
+  }
+
+  &:nth-child(3) {
+    animation: paginate-spinner2 0.6s infinite;
+    left: 32px;
+  }
+
+  &:nth-child(4) {
+    animation: paginate-spinner3 0.6s infinite;
+    left: 56px;
+  }
+}
+
+@keyframes paginate-spinner1 {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes paginate-spinner3 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes paginate-spinner2 {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(24px, 0);
+  }
+}
